@@ -29,14 +29,12 @@ def initDetector(wukong):
             porcupine = pvporcupine.create(
                 access_key=access_key,
                 keyword_paths=[constants.getConfigData(kw) for kw in keyword_paths],
-                sensitivyities=[config.get("sensitivity", 0.5)] * len(keyword_paths),
                 model_path=model_path
             )
         else:
             porcupine = pvporcupine.create(
                 access_key=access_key,
-                keywords=keywords,
-                sensitivities=[config.get("sensitivity", 0.5)] * len(keywords),
+                keywords=keywords
             )
 
         recorder = PvRecorder(device_index=-1, frame_length=porcupine.frame_length)
